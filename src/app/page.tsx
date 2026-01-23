@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
-
+import Navbar from "../components/Shared/Navbar";
 
 export default function Home() {
   return (
-    
-    <Button>Hello boy </Button>
+    <div className="relative h-full w-full bg-black">
+      <Navbar />
+    </div>
   );
 }
