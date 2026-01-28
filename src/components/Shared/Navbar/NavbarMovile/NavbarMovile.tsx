@@ -3,7 +3,8 @@
 import Logo from "../Logo";
 import Link from "next/link";
 import { itemsNavbar } from "../../../../Data/itemsNavbar";
-import { Menu } from "lucide-react";
+import { BellRing, Menu } from "lucide-react";
+import { Search } from "lucide-react";
 
 import {
   Sheet,
@@ -43,8 +44,20 @@ export default function NavbarMobile() {
               </Link>
             ))}
           </div>
+         <div className="border border-white"></div>
+
+
+
+<div className="flex justify-between items-center gap-3 mt-4 px-4 text-white">
+  <Search className="cursor-pointer" />
+  <BellRing className="cursor-pointer" />
+  <p className="font-medium">User</p>
+</div>
+
+
         </SheetContent>
       </Sheet>
     </div>
   );
 }
+ 

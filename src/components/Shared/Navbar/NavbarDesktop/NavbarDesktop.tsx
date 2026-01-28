@@ -5,19 +5,19 @@ import { itemsNavbar } from "../../../../Data/itemsNavbar";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import useScrollposition from "./hooks/useScrollposition";
-import { BellRing } from "lucide-react";
-import { Search } from "lucide-react";  
+import { BellRing, Search } from "lucide-react";
 
 export default function NavbarDesktop() {
   const scrollPosition = useScrollposition();
-  console.log("Scroll:", scrollPosition);
 
   return (
     <div
       id="navbar-desktop"
       className={cn(
-        "flex items-center justify-between px-10 py-4 bg-black text-white fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrollPosition > 50 ? "shadow-lg backdrop-blur-md" : ""
+        "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-4 text-white transition-all duration-300",
+        scrollPosition > 50
+          ? "bg-black/80 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
       )}
     >
       {/* IZQUIERDA: Logo + Links */}
@@ -38,7 +38,7 @@ export default function NavbarDesktop() {
 
       {/* DERECHA: Iconos y usuario */}
       <div className="flex items-center gap-4">
-         <Search className="cursor-pointer" />
+        <Search className="cursor-pointer" />
         <BellRing className="cursor-pointer hover:text-[#E50914] transition-colors duration-300" />
         <p className="font-semibold cursor-pointer hover:text-[#E50914] transition-colors duration-300">
           User
