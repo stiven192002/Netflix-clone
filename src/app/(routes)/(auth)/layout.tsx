@@ -39,23 +39,28 @@ export default function AuthLayout() {
 
 <LoginForm></LoginForm>
 
-          {/* DESCRIPCIÓN */}
-          <p className="text-sm text-gray-300">
-            Crea una cuenta para comenzar a ver películas y series de Netflix
-          </p>
-
-          {/* BOTÓN */}
-          <button className="mt-2 bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 transition">
-            Crear cuenta
-          </button>
-
-          {/* CHECKBOX */}
-          <div className="flex items-center gap-2 mt-2">
+<div className="flex items-center gap-2 mt-2">
             <Checkbox id="terms" className="border-white" />
             <label htmlFor="terms" className="text-sm text-gray-300">
               Recuérdame
             </label>
           </div>
+
+
+            {/* BOTÓN */}
+          <button className="mt-2 bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 transition">
+            Crear cuenta
+          </button>
+          
+          {/* DESCRIPCIÓN */}
+          <p className="text-sm text-gray-300">
+            Crea una cuenta para comenzar a ver películas y series de Netflix
+          </p>
+
+        
+
+          {/* CHECKBOX */}
+          
 
           {/* FOOTER */}
           <div className="mt-4 flex gap-1 text-sm">
