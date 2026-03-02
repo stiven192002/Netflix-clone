@@ -1,10 +1,10 @@
 import Logo from "@/components/Shared/Navbar/Logo";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
-import Terms from "./login/Terms/Terms";
-import LoginForm from "./login/LoginForm/loginForm"; 
+import Terms from "./Terms/Terms";
+import LoginForm from "./LoginForm/loginForm"; 
 
-export default function AuthLayout() {
+export default async function AuthLayout() {
   return (
     <div className="relative min-h-screen bg-black overflow-hidden">
       
@@ -37,17 +37,17 @@ export default function AuthLayout() {
             Bienvenido a Netflix Clone
           </h1>
 
-<LoginForm></LoginForm>
+          {/* FORMULARIO DE LOGIN */}
+          <LoginForm />
 
-<div className="flex items-center gap-2 mt-2">
+          <div className="flex items-center gap-2 mt-2">
             <Checkbox id="terms" className="border-white" />
             <label htmlFor="terms" className="text-sm text-gray-300">
               Recuérdame
             </label>
           </div>
 
-
-            {/* BOTÓN */}
+          {/* BOTÓN CREAR CUENTA */}
           <button className="mt-2 bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 transition">
             Crear cuenta
           </button>
@@ -57,12 +57,7 @@ export default function AuthLayout() {
             Crea una cuenta para comenzar a ver películas y series de Netflix
           </p>
 
-        
-
-          {/* CHECKBOX */}
-          
-
-          {/* FOOTER */}
+          {/* FOOTER / REGISTRO */}
           <div className="mt-4 flex gap-1 text-sm">
             <p className="text-gray-400">
               ¿Todavía no tienes Netflix?
@@ -71,7 +66,8 @@ export default function AuthLayout() {
               Suscríbete ahora
             </Link>
           </div>
-          <Terms></Terms>
+
+          <Terms />
         </main>
       </div>
     </div>

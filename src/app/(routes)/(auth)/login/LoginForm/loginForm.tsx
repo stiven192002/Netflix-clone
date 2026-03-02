@@ -1,11 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { z } from "zod"
+import {  z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Eye, EyeOff } from "lucide-react"
  import FormError from "./FormError/FormError";
+ import { login } from "@/accion/login"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -17,6 +18,9 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { toast } from "sonner";
+
+
 
 // ✅ Esquema de validación
 const formSchema = z.object({
@@ -32,7 +36,7 @@ const formSchema = z.object({
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
-  const [ error, setError] = useState <string | undefined >("aaaaaaaaaaaaaaaa");
+  const [ error, setError] = useState <string | undefined >("");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,12 +46,27 @@ export default function LoginForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+ async function onSubmit(values: z.infer<typeof formSchema>) {
+  try {
+    const data = await login(values);
+
+    if ("error" in data) {
+      setError(data.error);
+      return;
+    }
+
+  toast.success("Login correcto", {
+  description: "Redirigiendo a tu perfil...",
+});
+
+  } catch {
+    setError("Something went wrong");
   }
+}
 
   return (
     <Form {...form}>
+   
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 
         {/* EMAIL */}
